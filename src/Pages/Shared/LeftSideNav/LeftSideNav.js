@@ -1,12 +1,11 @@
 import React from 'react';
 
-
-
-const Header = () => {
+const LeftSideNav = () => {
     return (
         <div>
+            left side nav
         </div>
     );
 };
 
-export default Header;
+export default LeftSideNav;
