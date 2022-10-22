@@ -7,8 +7,8 @@ const RightSideNav = () => {
     return (
         <div>
             <ButtonGroup vertical>
-                <Button>Button</Button>
-                <Button>Button</Button>
+                <Button variant='outline-primary'>Login with Google</Button>
+                <Button variant='outline-dark'>Login with Github</Button>
             </ButtonGroup>
         </div>
     );
