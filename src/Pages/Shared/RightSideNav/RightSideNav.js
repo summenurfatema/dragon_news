@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 
@@ -7,9 +7,11 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { FaGoogle, FaGithub, FaFacebook, FaTwitch, FaTwitter, FaWhatsapp, FaStackExchange } from "react-icons/fa";
 import BrandCarosal from '../BrandCarosal/BrandCarosal';
+import { AuthContext } from '../../../context/UserContext';
 
 
 const RightSideNav = () => {
+    const { user } = useContext(AuthContext)
     return (
         <div>
             <ButtonGroup vertical>
@@ -25,6 +27,7 @@ const RightSideNav = () => {
                     <ListGroup.Item className='mb-2'><FaTwitch />Twitch</ListGroup.Item>
                     <ListGroup.Item className='mb-2'><FaWhatsapp />Whatsapp</ListGroup.Item>
                     <ListGroup.Item className='mb-2'><FaStackExchange />Privacy Policy</ListGroup.Item>
+                    {user.name}
                 </ListGroup>
             </div>
 
