@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../../context/UserContext';
 
 const Login = () => {
-
+    const [error, setError] = useState()
     const { signIn } = useContext(AuthContext)
     const handleSubmit = event => {
         event.preventDefault()
@@ -22,7 +22,11 @@ const Login = () => {
                 console.log(user)
 
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                setError(error.message)
+
+            })
     }
     return (
         <Form onSubmit={handleSubmit}>
@@ -35,6 +39,7 @@ const Login = () => {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" name='password' placeholder="Password" />
             </Form.Group>
+            <p>{error}</p>
             <Button variant="primary" type="submit">
                 Login
             </Button>

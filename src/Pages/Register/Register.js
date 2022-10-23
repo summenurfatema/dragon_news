@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
 
 const Register = () => {
+    const [error, setError] = useState()
+
     const { createUser } = useContext(AuthContext)
     const navigate = useNavigate()
     const handleSubmit = event => {
@@ -22,7 +24,10 @@ const Register = () => {
                 navigate('/')
 
             })
-            .then(error => console.error(error))
+            .then(error => {
+                setError(error.message)
+                console.error(error)
+            })
     }
     return (
         <Form onSubmit={handleSubmit}>
@@ -39,6 +44,7 @@ const Register = () => {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" name='password' placeholder="Password" />
             </Form.Group>
+            <p>{error}</p>
             <Button variant="primary" type="submit">
                 Register
             </Button>
