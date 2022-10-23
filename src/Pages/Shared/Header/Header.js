@@ -40,14 +40,11 @@ const Header = () => {
                                     <button>Log Out</button>
                                 </>
                                 :
-
                                 <>
                                     <Link to='/login'>Log in</Link>
                                     <Link to='/register'>Sign up</Link>
                                 </>
                         }
-
-
                         <div>
                             {
                                 user?.photoURL ?
