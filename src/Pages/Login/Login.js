@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { AuthContext } from '../../context/UserContext';
 
 const Login = () => {
+
+    const { signIn } = useContext(AuthContext)
     const handleSubmit = event => {
         event.preventDefault()
         const form = event.target;
 
-        const email = form.email.value
-        const password = form.password.value
-        console.log(email, password)
+        const email = form.email.value;
+        const password = form.password.value;
+        //console.log(email, password)
+
+
+
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+
+            })
+            .catch(error => console.error(error))
     }
     return (
         <Form onSubmit={handleSubmit}>
