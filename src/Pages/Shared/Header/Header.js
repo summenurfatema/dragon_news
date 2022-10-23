@@ -33,7 +33,21 @@ const Header = () => {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <p>{user?.displayName}</p>
+                        {
+                            user?.uid ?
+                                <>
+                                    <p>{user?.displayName}</p>
+                                    <button>Log Out</button>
+                                </>
+                                :
+
+                                <>
+                                    <Link to='/login'>Log in</Link>
+                                    <Link to='/register'>Sign up</Link>
+                                </>
+                        }
+
+
                         <div>
                             {
                                 user?.photoURL ?
