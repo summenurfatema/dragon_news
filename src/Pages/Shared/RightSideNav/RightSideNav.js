@@ -12,7 +12,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 
 
 const RightSideNav = () => {
-    const { user, googleSignIn } = useContext(AuthContext)
+    const { googleSignIn } = useContext(AuthContext)
 
     const handleGoogleSignIn = () => {
         const googleProvider = new GoogleAuthProvider()
@@ -38,7 +38,7 @@ const RightSideNav = () => {
                     <ListGroup.Item className='mb-2'><FaTwitch />Twitch</ListGroup.Item>
                     <ListGroup.Item className='mb-2'><FaWhatsapp />Whatsapp</ListGroup.Item>
                     <ListGroup.Item className='mb-2'><FaStackExchange />Privacy Policy</ListGroup.Item>
-                    {user.name}
+
                 </ListGroup>
             </div>
 
