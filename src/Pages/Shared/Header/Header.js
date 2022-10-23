@@ -10,7 +10,7 @@ import { Image } from 'react-bootstrap';
 
 
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
     return (
         <Navbar className='mb-4' collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
@@ -37,7 +37,7 @@ const Header = () => {
                             user?.uid ?
                                 <>
                                     <p>{user?.displayName}</p>
-                                    <button>Log Out</button>
+                                    <button onClick={logOut}>Log Out</button>
                                 </>
                                 :
                                 <>
